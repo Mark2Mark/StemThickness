@@ -14,6 +14,7 @@
 from GlyphsApp.plugins import *
 from GlyphsApp import MOUSEMOVED
 import traceback, objc, itertools, math
+import cProfile
 
 def distanceAB(A,B):
     sqA = (B.x - A.x) **2
@@ -181,7 +182,6 @@ class StemThickness(ReporterPlugin):
 
     def _foreground(self, layer):
         try:
-            import cProfile
             cProfile.runctx('self._foreground(layer)', globals(), locals())
             print "**"
         except:
